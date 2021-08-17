@@ -1,0 +1,6 @@
+{
+  "printWidth": 120,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "object-literal-shorthand": [true, {"property": "never"}]
+}
