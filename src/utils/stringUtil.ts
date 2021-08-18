@@ -11,16 +11,6 @@ export const stringUtils = {
   },
 
   /**
-   * calculate distance between two points
-   * @param pnt1
-   * @param pnt2
-   * @returns
-   */
-  pointDist: (pnt1: ICoord, pnt2: ICoord) => {
-    return Math.sqrt((pnt1.x - pnt2.x) * (pnt1.x - pnt2.x) + (pnt1.y - pnt2.y) * (pnt1.y - pnt2.y));
-  },
-
-  /**
    * camel to hyphen
    * @param propName : css prop name in camel style
    */

@@ -1,28 +1,67 @@
 "use strict";
+/**
+ * @api {post} /src 请求首页数据
+ * @apiVersion 1.0.8
+ * @apiName 获取首页数据
+ * @apiGroup index
+ *
+ * @apiSuccess {Number} flag 是否获取到数据 1成功 0失败
+ * @apiSuccess {Array} books 返回书籍内容
+ * @apiSuccess {String} msg  返回信息
+ *
+ * @apiSuccessExample {json} Success-Response:
+ *    {
+ *      "code": 200,
+ *      "msg": "OK"
+ *    }
+ *
+ * @apiErrorExample Error-Response:
+ *     HTTP/1.1 404 Not Found
+ *     { "flag": 0, "msg": "rankingId有问题" }
+ *
+ * @apiSampleRequest http://127.0.0.1:3000/test
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.jsAssist = void 0;
 const arrayUtil_1 = require("./utils/arrayUtil");
 const colorUtil_1 = require("./utils/colorUtil");
-const generalUtil_1 = require("./utils/generalUtil");
-const mathUtil_1 = require("./utils/mathUtil");
+const numberUtil_1 = require("./utils/numberUtil");
 const objUtil_1 = require("./utils/objUtil");
-const combineUtils = (tools) => {
-    let result = {};
-    Object.keys(tools).forEach((key) => {
-        result = Object.assign(Object.assign({}, result), tools[key]);
-    });
-    return result;
-};
-const combinedUtils = combineUtils({
-    generalUtils: generalUtil_1.generalUtils,
+const stringUtil_1 = require("./utils/stringUtil");
+const mapUtil_1 = require("./utils/mapUtil");
+const svgUtil_1 = require("./utils/svgUtil");
+const spacialUtil_1 = require("./utils/spacialUtil");
+const timeUtil_1 = require("./utils/timeUtil");
+// const combineUtils = (tools: { [key: string]: any }) => {
+//     let result: any = {};
+//     Object.keys(tools).forEach((key) => {
+//         result = { ...result, ...tools[key] };
+//     })
+//     return result;
+// };
+// export const jsAssist:
+//     typeof numberUtils
+//     & typeof arrayUtils
+//     & typeof objUtils
+//     & typeof colorUtils
+//     & typeof stringUtils
+//     & typeof mapUtils = combineUtils({
+//         arrayUtil: arrayUtils,
+//         numberUtils: numberUtils,
+//         colorUtils: colorUtils,
+//         objUtils: objUtils
+//     });
+/**
+ * this is commet test
+ */
+exports.jsAssist = {
+    numberUtil: numberUtil_1.numberUtils,
+    stringUtil: stringUtil_1.stringUtils,
     arrayUtil: arrayUtil_1.arrayUtils,
-    mathUtils: mathUtil_1.mathUtils,
-    colorUtils: colorUtil_1.colorUtils,
-    objUtils: objUtil_1.objUtils
-});
-function asSchema(t) {
-    return t;
-}
-const combinedUtilsSchema = asSchema(combinedUtils);
-exports.jsAssist = combinedUtils;
-// export const jsAssist: TCombinedUtils = combinedUtils;
+    mapUtil: mapUtil_1.mapUtils,
+    objUtil: objUtil_1.objUtils,
+    colorUtil: colorUtil_1.colorUtils,
+    spacialUtil: spacialUtil_1.specialUtils,
+    timeUtil: timeUtil_1.timeUtils,
+    svgUtil: svgUtil_1.svgUtils,
+};

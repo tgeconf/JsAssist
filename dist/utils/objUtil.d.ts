@@ -18,4 +18,5 @@ export declare const objUtils: {
      * @return {Number}
      */
     calEucDis: (obj1: any, obj2: any) => number;
+    getType: (obj: any) => string;
 };

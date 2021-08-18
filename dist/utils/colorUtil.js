@@ -8,21 +8,11 @@ exports.colorUtils = {
      * @return {Array}
      */
     hexToRgb: (hex) => {
-        const color = [];
-        const rgb = [];
-        hex = hex.replace(/#/, "");
-        if (hex.length === 3) {
-            const tmp = [];
-            for (let i = 0; i < 3; i++) {
-                tmp.push(hex.charAt(i) + hex.charAt(i));
-            }
-            hex = tmp.join("");
-        }
-        for (let i = 0; i < 3; i++) {
-            color[i] = "0x" + hex.substr(i * 2, 2);
-            rgb.push(parseInt(`${Number(color[i])}`, 10));
-        }
-        return rgb;
+        return [
+            parseInt('0x' + hex.substring(1, 3), 10),
+            parseInt('0x' + hex.substring(3, 5), 10),
+            parseInt('0x' + hex.substring(5, 7), 10),
+        ];
     },
     /**
      * rgb to hex
@@ -31,10 +21,10 @@ exports.colorUtils = {
      */
     rgbToHex: (rgb) => {
         const color = rgb.toString().match(/\d+/g);
-        let hex = "#";
+        let hex = '#';
         for (let i = 0; i < 3; i++) {
-            hex += ("0" + Number(color[i]).toString(16)).slice(-2);
+            hex += ('0' + Number(color[i]).toString(16)).slice(-2);
         }
         return hex;
-    }
+    },
 };

@@ -24,18 +24,29 @@ export const numberUtils = {
    * @param num 
    * @returns 
    */
-  toFixed(input: number, num: number) {
+  floor(input: number, num: number) {
     return Math.floor(Math.pow(10, num) * input) / Math.pow(10, num);
   },
 
   /**
-   * rounded number
-   * @param n 
-   * @param d 
+   * Round number
+   * @param input 
+   * @param num 
    * @returns 
    */
-  round(n: number, d: number) {
-    d = Math.pow(10, d);
-    return Math.round(n * d) / d;
+  round(input: number, num: number) {
+    const d: number = Math.pow(10, num);
+    return Math.round(input * d) / d;
+  },
+
+  /**
+   * Ceil number
+   * @param input 
+   * @param num 
+   * @returns 
+   */
+   ceil(input: number, num: number) {
+    const d: number = Math.pow(10, num);
+    return Math.ceil(input * d) / d;
   },
 };

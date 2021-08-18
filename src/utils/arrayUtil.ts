@@ -42,7 +42,7 @@ export const arrayUtils = {
      * @param arr2
      * @returns
      */
-    isSameArrays(arr1: any[], arr2: any[]) {
+    sameArrays(arr1: any[], arr2: any[]) {
         let same: boolean = true;
         if (arr1.length !== arr2.length) {
             same = false;
@@ -62,8 +62,8 @@ export const arrayUtils = {
      * @param set2
      * @returns
      */
-    identicalSets(set1: Set<any>, set2: Set<any>) {
-        return arrayUtils.isSameArrays([...set1], [...set2]);
+    sameSets(set1: Set<any>, set2: Set<any>) {
+        return arrayUtils.sameArrays([...set1], [...set2]);
     },
 
     /**
@@ -71,9 +71,9 @@ export const arrayUtils = {
      * @param a
      * @param b
      */
-    array2DItem(a: any[][], b: any[]) {
+    isChild(a: any[][], b: any[]) {
         for (let i = 0, len = a.length; i < len; i++) {
-            if (arrayUtils.isSameArrays(a[i], b)) {
+            if (arrayUtils.sameArrays(a[i], b)) {
                 return true;
             }
         }
@@ -81,27 +81,35 @@ export const arrayUtils = {
     },
 
     /**
-     * whether a contains b
-     * @param a
-     * @param b
+     * whether arr1 contains arr2
+     * @param arr1 
+     * @param arr2 
+     * @returns 
      */
-    arrayContained(a: any[], b: any[]) {
-        if (a.length < b.length) return false;
-        for (const item of b) {
-            if (a.indexOf(item) === -1) return false;
+    arrayContained(arr1: any[], arr2: any[]) {
+        if (arr1.length < arr2.length) return false;
+        for (const item of arr2) {
+            if (arr1.indexOf(item) === -1) return false;
         }
         return true;
     },
 
     /**
-     * remove b from a
-     * @param a
-     * @param b
+     * remove arr2 from arr1
+     * @param arr1 
+     * @param arr2 
+     * @returns 
      */
-    excludeArray(a: any[], b: any[]) {
-        return a.filter((c) => !b.includes(c));
+    excludeArray(arr1: any[], arr2: any[]) {
+        return arr1.filter((a) => !arr2.includes(a));
     },
 
+    /**
+     * check whether an array contains an object
+     * @param objArr 
+     * @param obj 
+     * @returns 
+     */
     containObj: (objArr: { [key: string]: any }[], obj: { [key: string]: any }) => {
         let contains: boolean = false;
         objArr.forEach((tmpObj: { [key: string]: any }) => {
