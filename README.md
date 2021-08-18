@@ -22,6 +22,10 @@ $ npm i --save lodash
     1. [Sub paragraph](#subparagraph1) -->
 
 ## Number Utils <a name='number'></a>
+* 
+|  表头   | 表头  |
+|  ----  | ----  |
+| 单元格  | 单元格 |
 
 ## String Utils <a name='string'></a>
 
@@ -41,18 +45,3 @@ $ npm i --save lodash
 ## Time Utils <a name='time'></a>
 
 ## SVG Utils <a name='svg'></a>
-
-
-
-ColorUtils
-* hexToRgb
-* rgbToHex
-
-MathUtils
-* randNum
-* calEucDis
-
-ObjUtils
-* isEmptyObj
-* deepClone
-* calEucDis
